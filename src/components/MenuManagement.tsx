@@ -37,7 +37,7 @@ export function MenuManagement({ onBack, onMenuUpdate }: MenuManagementProps) {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/menu', {
+      await axios.post('https://resto-app-s3pk.onrender.com/api/menu', {
         ...newItem,
         price: parseFloat(newItem.price)
       });
@@ -52,7 +52,7 @@ export function MenuManagement({ onBack, onMenuUpdate }: MenuManagementProps) {
 
   const handleDeleteItem = async (itemId: string) => {
     try {
-      await axios.delete(`http://localhost:5000/api/menu/${itemId}`);
+      await axios.delete(`https://resto-app-s3pk.onrender.com/api/menu/${itemId}`);
       await Promise.all([fetchMenuItems(), onMenuUpdate()]);
     } catch (error) {
       console.error('Error deleting menu item:', error);
